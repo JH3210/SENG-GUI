@@ -1,27 +1,37 @@
-from tkinter import *
+import tkinter as tk
 from PIL import Image, ImageTk
-root = Tk()
-root.title("Urdu Alphabet Learning and Quiz")
-root.geometry("600x500")
-root.configure(bg='lightblue')
 
-urdu_alphabet = [
-    ('ا', 'Alif'), ('ب', 'Bay'), ('پ', 'Pay'), ('ت', 'Tay'), ('ٹ', 'Ttay'),
-    ('ث', 'Ssay'), ('ج', 'Jeem'), ('چ', 'Chay'), ('ح', 'Hay'), ('خ', 'Khay'),
-    ('د', 'Dal'), ('ڈ', 'Ddal'), ('ذ', 'Zal'), ('ر', 'Ray'), ('ڑ', 'Rray'),
-    ('ز', 'Zay'), ('ژ', 'Zhay'), ('س', 'Seen'), ('ش', 'Sheen'), ('ص', 'Suaad'),
-    ('ض', 'Zuad'), ('ط', 'Tua'), ('ظ', 'Zua'), ('ع', 'Ain'), ('غ', 'Ghain'),
-    ('ف', 'Fay'), ('ق', 'Qaaf'), ('ک', 'Kaaf'), ('گ', 'Gaaf'), ('ل', 'Laam'),
-    ('م', 'Meem'), ('ن', 'Noon'), ('ں', 'Noonghunna'), ('و', 'Wao'), ('ہ', 'Hay'),
-    ('ء', 'Hamza'), ('ی', 'Yay'), ('ے', 'BarriYay')
-]
+def home_page():
+    root = tk.Tk()
+    root.title("Learn Urdu")
+    root.geometry("800x600")
+    root.configure(background='lightblue')
 
-quiz_questions = [
-    ('ا', 'Alif', 'radio'), ('ب', 'Bay', 'entry'), ('پ', 'Pay', 'radio'), ('ت', 'Tay', 'entry'),
-    ('ٹ', 'Ttay', 'radio'), ('ث', 'Ssay', 'entry'), ('ج', 'Jeem', 'radio'), ('چ', 'Chay', 'entry'),
-    ('ح', 'Hay', 'radio'), ('خ', 'Khay', 'entry')
-]
+    def exit_program():
+        root.destroy()
 
+    def learn_alphabet():
+        clear_screen()
+        img = Image.open("Urdu.png")
+        img = img.resize((600, 500), Image.Resampling.LANCZOS)
+        photo = ImageTk.PhotoImage(img)
 
+        img_label = tk.Label(root, image=photo)
+        img_label.image = photo  
+        img_label.pack(pady=20)
 
-root.mainloop()
+        back_button = tk.Button(root, text="Back", command=home_page,
+                                font=("Comic Sans MS", 20),
+                                bg='darkblue',
+                                fg='lightblue',
+                                relief="raised",
+                                borderwidth=2)
+        back_button.pack(pady=20)
+    
+    def clear_screen():
+        for widget in root.winfo_children():
+            widget.destroy()
+    
+    root.mainloop()
+
+home_page()
