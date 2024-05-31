@@ -7,7 +7,7 @@ def home_page():
     root = tk.Tk()
     root.title("Learn Urdu")
     root.geometry("1250x600")
-    root.configure(background='lime green')
+    root.configure(background='SkyBlue2')
 
     def exit_program():
         root.destroy()
@@ -17,7 +17,7 @@ def home_page():
         img = Image.open("Urdu.png")
         photo = ImageTk.PhotoImage(img)
 
-        img_label = tk.Label(root, image=photo, bg='lime green')
+        img_label = tk.Label(root, image=photo, bg='SkyBlue2')
         img_label.image = photo  
         img_label.pack(pady=20)
 
@@ -28,14 +28,14 @@ def home_page():
 
         audio_img = Image.open("audio.png").resize((50, 50))
         audio_photo = ImageTk.PhotoImage(audio_img)
-        audio_button = tk.Button(root, image=audio_photo, command=play_audio, bg='lime green')
+        audio_button = tk.Button(root, image=audio_photo, command=play_audio, bg='SkyBlue2')
         audio_button.image = audio_photo
         audio_button.pack(pady=10)
 
         back_button = tk.Button(root, text="Back", command=reset_to_home_page,
                                 font=("Arial", 20),
-                                bg='RoyalBlue3',
-                                fg='lime green',
+                                bg='navy',
+                                fg='SkyBlue2',
                                 relief="raised",
                                 borderwidth=2)
         back_button.pack(pady=20)
@@ -126,28 +126,36 @@ def home_page():
                     show_question()
                 else:  
                     clear_screen()
-                    score_label = tk.Label(root, text=f"Final Score: {score}/10", font=("Arial", 20), bg='lime green')
+                    score_label = tk.Label(root, text=f"Final Score: {score}/10", font=("Arial", 20), bg='SkyBlue2')
                     score_label.pack(pady=20)  
+                    
                     back_button = tk.Button(root, text="Back to Home", command=reset_to_home_page,
                                             font=("Arial", 20),
-                                            bg='RoyalBlue3',
-                                            fg='lime green',
+                                            bg='navy',
+                                            fg='SkyBlue2',
                                             relief="raised",
                                             borderwidth=2)
                     back_button.pack(pady=20)  
+                    
+                    img = Image.open("final.png")
+                    photo = ImageTk.PhotoImage(img)
 
-        question_frame = tk.Frame(root, bg='lime green')
+                    img_label = tk.Label(root, image=photo, bg='SkyBlue2')
+                    img_label.image = photo  
+                    img_label.pack(pady=20)
+
+        question_frame = tk.Frame(root, bg='SkyBlue2')
         question_frame.pack(pady=20)
 
-        question_label = tk.Label(question_frame, text="", font=("Arial", 20), bg='lime green')
+        question_label = tk.Label(question_frame, text="", font=("Arial", 20), bg='SkyBlue2')
         question_label.pack(pady=20)
 
         answer = tk.IntVar()
 
-        answer_radio1 = tk.Radiobutton(question_frame, variable=answer, value=1, font=("Arial", 15), bg='lime green')
-        answer_radio2 = tk.Radiobutton(question_frame, variable=answer, value=2, font=("Arial", 15), bg='lime green')
-        answer_radio3 = tk.Radiobutton(question_frame, variable=answer, value=3, font=("Arial", 15), bg='lime green')
-        answer_radio4 = tk.Radiobutton(question_frame, variable=answer, value=4, font=("Arial", 15), bg='lime green')
+        answer_radio1 = tk.Radiobutton(question_frame, variable=answer, value=1, font=("Arial", 15), bg='SkyBlue2')
+        answer_radio2 = tk.Radiobutton(question_frame, variable=answer, value=2, font=("Arial", 15), bg='SkyBlue2')
+        answer_radio3 = tk.Radiobutton(question_frame, variable=answer, value=3, font=("Arial", 15), bg='SkyBlue2')
+        answer_radio4 = tk.Radiobutton(question_frame, variable=answer, value=4, font=("Arial", 15), bg='SkyBlue2')
 
         entry_answer = tk.Entry(question_frame, font=("Arial", 15))
 
@@ -156,10 +164,10 @@ def home_page():
         answer_radio3.pack(pady=5)
         answer_radio4.pack(pady=5)
 
-        next_button = tk.Button(root, text="Next", command=next_question,
+        next_button = tk.Button(root, text="Submit Answer", command=next_question,
                                 font=("Arial", 20),
-                                bg='RoyalBlue3',
-                                fg='lime green',
+                                bg='navy',
+                                fg='SkyBlue2',
                                 relief="raised",
                                 borderwidth=2)
         next_button.pack(pady=20)
@@ -174,8 +182,8 @@ def home_page():
     def setup_home_page():
         label1 = tk.Label(root, text="Learn the Urdu Alphabet",
                           font=("Impact", 60),
-                          bg='lime green',
-                          fg='RoyalBlue3',
+                          bg='SkyBlue2',
+                          fg='navy',
                           padx=20,
                           pady=10,
                           relief="flat",
@@ -185,17 +193,17 @@ def home_page():
         img_urdu = Image.open("Urdu1.png")
         photo_urdu = ImageTk.PhotoImage(img_urdu)
 
-        img_label_center = tk.Label(root, image=photo_urdu, bg='lime green')
+        img_label_center = tk.Label(root, image=photo_urdu, bg='SkyBlue2')
         img_label_center.image = photo_urdu
         img_label_center.pack(pady=20)
 
-        button_frame = tk.Frame(root, bg='lime green')
+        button_frame = tk.Frame(root, bg='SkyBlue2')
         button_frame.pack(pady=20)
 
         button1 = tk.Button(button_frame, text="Learn the Alphabet", command=learn_alphabet,
                             font=("Arial", 20),
-                            bg='RoyalBlue3',
-                            fg='lime green',
+                            bg='navy',
+                            fg='SkyBlue2',
                             relief="raised",
                             borderwidth=2,
                             width=20)
@@ -203,8 +211,8 @@ def home_page():
 
         button2 = tk.Button(button_frame, text="Start Quiz", command=start_quiz,
                             font=("Arial", 20),
-                            bg='RoyalBlue3',
-                            fg='lime green',
+                            bg='navy',
+                            fg='SkyBlue2',
                             relief="raised",
                             borderwidth=2,
                             width=20)
@@ -212,8 +220,8 @@ def home_page():
 
         button3 = tk.Button(button_frame, text="Exit", command=exit_program,
                             font=("Arial", 20),
-                            bg='RoyalBlue3',
-                            fg='lime green',
+                            bg='navy',
+                            fg='SkyBlue2',
                             relief="raised",
                             borderwidth=2,
                             width=20)
