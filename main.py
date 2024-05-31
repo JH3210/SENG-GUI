@@ -107,9 +107,9 @@ def home_page():
             if current_question in [0, 2, 4, 6, 8]:
                 selected = str(answer.get())
             else:
-                selected = entry_answer.get()
+                selected = entry_answer.get().strip().lower()  # Convert to lowercase and strip whitespace
             
-            if selected == correct_answers[current_question]:
+            if selected == correct_answers[current_question].lower():  # Convert correct answer to lowercase
                 messagebox.showinfo("Result", "Correct!")
                 nonlocal score
                 score += 1
