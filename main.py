@@ -53,7 +53,7 @@ def home_page():
             "What is the first letter of the Urdu alphabet?",
             "How is this letter pronounced in Urdu - م (Write your answer in English transliteration)",
             "Which letter is pronounced as 'Jeem'?",
-            "How many letters are there in the Urdu Alphabet?",
+            "True or False : ے (Bari Ye) is the last letter of the Urdu Alphabet",
             "Which letter is pronounced 'Noon' in Urdu?",
             "What is the letter ر in transliteration?",
             "What is the letter چ in transliteration?",
@@ -69,13 +69,13 @@ def home_page():
              [],
              ["ن", "م", "ل", "ک"],
              [],
-             ["Chay", "Jeem", "Khay", "Ray"],
+             ["Jeem", "Chay", "Khay", "Ray"],
              [],
              ["ل", "ط", "س", "ف"],
              []
         ]
 
-        correct_answers = ["1", "meem", "1", "39", "1", "ray", "1", "true", "1", "1"]
+        correct_answers = ["1", "meem", "1", "true", "1", "ray", "2", "true", "1", "1"]
 
         def show_question():
             question_label.config(text=f"Q{current_question + 1}: {questions[current_question]}")
@@ -107,9 +107,9 @@ def home_page():
             if current_question in [0, 2, 4, 6, 8]:
                 selected = str(answer.get())
             else:
-                selected = entry_answer.get().strip().lower()  # Convert to lowercase and strip whitespace
+                selected = entry_answer.get().strip().lower()  
             
-            if selected == correct_answers[current_question].lower():  # Convert correct answer to lowercase
+            if selected == correct_answers[current_question].lower():  
                 messagebox.showinfo("Result", "Correct!")
                 nonlocal score
                 score += 1
@@ -121,10 +121,10 @@ def home_page():
             if current_question < 10:
                 check_answer()
                 current_question += 1
-                if current_question < 10:  # If not the last question
-                    entry_answer.delete(0, tk.END)  # Clear entry widget
+                if current_question < 10:  
+                    entry_answer.delete(0, tk.END)  
                     show_question()
-                else:  # Last question
+                else:  
                     clear_screen()
                     score_label = tk.Label(root, text=f"Final Score: {score}/10", font=("Arial", 20), bg='lime green')
                     score_label.pack(pady=20)  
@@ -136,7 +136,6 @@ def home_page():
                                             borderwidth=2)
                     back_button.pack(pady=20)  
 
-        # Added question_frame
         question_frame = tk.Frame(root, bg='lime green')
         question_frame.pack(pady=20)
 
